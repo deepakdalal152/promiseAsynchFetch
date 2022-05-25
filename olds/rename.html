@@ -1,0 +1,130 @@
+
+set cut_paste_input [stack 0]
+version 11.3 v6
+push $cut_paste_input
+Dot {
+ name Dot89
+ selected true
+ xpos 13291
+ ypos -3320
+}
+set Nf33f5490 [stack 0]
+Dot {
+ name Dot91
+ selected true
+ xpos 13083
+ ypos -3320
+}
+set N2c7aed60 [stack 0]
+Dot {
+ name Dot92
+ selected true
+ xpos 12881
+ ypos -3320
+}
+set N3c771540 [stack 0]
+Dot {
+ name Dot93
+ selected true
+ xpos 12708
+ ypos -3320
+}
+set N6e8c3080 [stack 0]
+Dot {
+ name Dot90
+ selected true
+ xpos 12530
+ ypos -3320
+}
+set Naff8c7d0 [stack 0]
+add_layer {__light_grp4_direct_diffuse_unoccluded __light_grp4_direct_diffuse_unoccluded.red __light_grp4_direct_diffuse_unoccluded.green __light_grp4_direct_diffuse_unoccluded.blue}
+Shuffle {
+ in __light_grp4_direct_diffuse_unoccluded
+ name Shuffle47
+ selected true
+ xpos 12496
+ ypos -2981
+}
+push $N6e8c3080
+add_layer {__light_grp4_indirect_specular __light_grp4_indirect_specular.red __light_grp4_indirect_specular.green __light_grp4_indirect_specular.blue}
+Shuffle {
+ in __light_grp4_indirect_specular
+ name Shuffle50
+ selected true
+ xpos 12674
+ ypos -3054
+}
+push $N3c771540
+add_layer {__light_grp4_direct_specular __light_grp4_direct_specular.red __light_grp4_direct_specular.green __light_grp4_direct_specular.blue}
+Shuffle {
+ in __light_grp4_direct_specular
+ name Shuffle49
+ selected true
+ xpos 12847
+ ypos -3106
+}
+push $N2c7aed60
+add_layer {__light_grp4_indirect_diffuse __light_grp4_indirect_diffuse.red __light_grp4_indirect_diffuse.green __light_grp4_indirect_diffuse.blue}
+Shuffle {
+ in __light_grp4_indirect_diffuse
+ name Shuffle48
+ selected true
+ xpos 13049
+ ypos -3166
+}
+push $Nf33f5490
+add_layer {__light_grp4_direct_diffuse __light_grp4_direct_diffuse.red __light_grp4_direct_diffuse.green __light_grp4_direct_diffuse.blue}
+Shuffle {
+ in __light_grp4_direct_diffuse
+ name Shuffle46
+ selected true
+ xpos 13257
+ ypos -3216
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Plus7
+ selected true
+ xpos 13257
+ ypos -3160
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Plus8
+ selected true
+ xpos 13257
+ ypos -3106
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Plus9
+ selected true
+ xpos 13257
+ ypos -3054
+}
+push $Naff8c7d0
+Dot {
+ name Dot94
+ selected true
+ xpos 12396
+ ypos -3320
+}
+add_layer {__light_grp4 __light_grp4.red __light_grp4.green __light_grp4.blue}
+Shuffle {
+ in __light_grp4
+ name Shuffle51
+ selected true
+ xpos 12362
+ ypos -2919
+}
+Switch {
+ inputs 2
+ which 1
+ name Switch1
+ selected true
+ xpos 13257
+ ypos -2919
+}

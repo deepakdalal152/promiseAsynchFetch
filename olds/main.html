@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mainBorder{
+            height: 600px;
+            width: 400px;
+            border: 2px red solid;
+            margin: auto;
+            padding: 2%;
+        }
+        .catagery{
+            border: 1px red solid;
+        }
+        .catagery:first-child{
+            width: 100%;
+            height: 20%;
+            display: flex;
+            margin: auto;
+        }
+        .catagery:nth-child(2){
+            width: 100%;
+            height: 20%;
+            margin: auto;
+        }
+        .catagery:nth-child(3){
+            width: 100%;
+            height: 50%;
+            display: grid;
+            grid-template-areas:
+            "a b c"
+            "d e f"
+            "g h i"
+            "k j l"
+            ;
+        }
+        .catagery:last-child{
+            width: 100%;
+            height: 10%;
+            margin: auto;
+        }
+        .scoreBoard{
+            margin: auto;
+            border: 2px red solid;
+            width: 25%;
+            height: 100%;
+        }
+        .score{
+            width: 100%;
+            height: 50%;
+            border: 2px red solid;
+            text-align: center;
+            font-size: 200%;
+        }
+        h3{
+            text-align: center;
+            margin: auto;
+        }
+        .enterScore{
+            margin: auto;
+            width: 50%;
+            height: 40%;
+            border: 2px red solid;
+        }
+        .sub{
+            width: 60%;
+            height: 100%;
+            margin: auto;
+        }
+        #enter{
+            width: 100%;
+            height: 90%;
+            background-color: aquamarine;
+            color: aqua;
+            font-size: 200%;
+        }
+        .btn{
+            width: 50%;
+            height: 50%;
+            font-size: 150%;
+            background-color: aliceblue;
+            text-align: center;
+            margin: auto;
+        }
+        #eScore{
+            width: 100%;
+            height: 100%;
+            background-color: aliceblue;
+            color: aqua;
+            text-align: right;
+            font-size: 150%;
+        }
+        #btn1{grid-area: a;}
+        #btn2{grid-area: b;}
+        #btn3{grid-area: c;}
+        #btn4{grid-area: d;}
+        #btn5{grid-area: e;}
+        #btn6{grid-area: f;}
+        #btn7{grid-area: g;}
+        #btn8{grid-area: h;}
+        #btn9{grid-area: i;}
+        #btn0{grid-area: j;}
+        #btnls{grid-area: k; border-radius: 100% 0% 0% 100%;}
+        #btnrs{grid-area: l;}
+    </style>
+</head>
+<body>
+    <div class="mainBorder">
+        <div class="catagery">
+            <div class="scoreBoard">
+                <div class="score" id="min">39</div>
+                <h3>MIN</h3>
+            </div>
+            <div class="scoreBoard">
+                <div class="score" id="max">2019</div>
+                <h3>MAX</h3>
+            </div>
+        </div>
+        <div class="catagery">
+            <h3>SCORE</h3>
+            <div class="enterScore">
+                <input type="number" name="enterNumber" id="eScore">
+            </div>
+        </div>
+        <div class="catagery">
+            <button class="btn" id="btn1" onclick="number(1)">1</button>
+            <button class="btn" id="btn2" onclick="number(2)">2</button>
+            <button class="btn" id="btn3" onclick="number(3)">3</button>
+            <button class="btn" id="btn4" onclick="number(4)">4</button>
+            <button class="btn" id="btn5" onclick="number(5)">5</button>
+            <button class="btn" id="btn6" onclick="number(6)">6</button>
+            <button class="btn" id="btn7" onclick="number(7)">7</button>
+            <button class="btn" id="btn8" onclick="number(8)">8</button>
+            <button class="btn" id="btn9" onclick="number(9)">9</button>
+            <button class="btn" id="btn0" onclick="number(0)">0</button>
+            <button class="btn" id="btnls" onclick="number('X')">X</button>
+            <button class="btn" id="btnrs" onclick="number('C')">C</button>
+        </div>
+        <div class="catagery">
+            <div class="sub">
+                <!-- <input type="submit" name="submitButton" id="submit"> -->
+                <button id="enter" onclick="enterEvent()">ENTER</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+            function number(num)
+            {
+                var getValue = document.querySelector('#eScore');
+                    if(num == 'C')
+                        {
+                            getValue.value = ''
+                        }
+                    else if(num == 'X' )
+                        {
+                            getValue.value = getValue.value.slice(0,-1);
+                        }
+                    else
+                        {
+                            getValue.value += num;
+                        }
+
+            }
+
+            function enterEvent()
+            {
+                var minScore = document.querySelector('#min');
+                var maxScore = document.querySelector('#max');
+                var currentScore = document.querySelector('#eScore');
+
+                var minS = parseInt(minScore.textContent);
+                var maxS = parseInt(maxScore.textContent);
+
+                if(currentScore.value)
+                {
+                    if(currentScore.value < minS)
+                    {
+                        minScore.textContent = currentScore.value
+                        currentScore.value = '';
+                    }
+                    else if(currentScore.value > maxS)
+                    {
+                        maxScore.textContent = currentScore.value;
+                        currentScore.value = '';
+                    }
+                    else
+                    {
+                        alert("We are no able to change scoreBoard, because the score is between min score and max score")
+                    }
+                }
+                else{
+                    alert("Please enter a score ")
+                }
+            }
+    </script>
+</body>
+</html>
