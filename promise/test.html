@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    // newPromise>(createElement>setAtrb>append>.onloadAndonerror>)> promise.thenAndcatch
+    async function name()
+    {
+        let name =  await name()
+    }
+
+        function append(s)
+        {
+
+            let myPromise = new Promise(function(resolve, reject){
+
+                let script = document.createElement("script")
+
+                script.src = s;
+
+                document.head.append(script);
+
+                script.onload = function(){
+                    resolve("loading done");
+                }
+                script.onerror = function()
+                {
+                    reject("loading failed");
+                }
+                
+            })  
+            return myPromise          
+        };
+
+        async function handle()
+        {
+            let res =  await append('./test.js')
+            hello()
+            console.log(res)
+        }
+        handle()
+
+
+
+
+        //  append('./test.js')
+        //     .then(function(val){
+        //      hello()
+        //      append("./test2.js").then(function(val){
+        //          hello2()
+        //      })
+        //  })
+
+
+        
+        // let myPromise = new Promise(function(resolve, reject){
+        //         let loaded = append('./test.js')
+
+        //         setTimeout(function(){
+        //             resolve("DOne")
+        //         },2000)
+            
+        // })
+
+
+
+
+        // console.log(myPromise)
+
+        // myPromise.then(function(){
+        //     hello()
+        // })
+
+
+</script>
